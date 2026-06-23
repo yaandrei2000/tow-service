@@ -89,3 +89,27 @@ a { color: inherit; }
 .theme-toggle:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
 
 .calc-type { transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+
+/* ============ Mobile tweaks ============ */
+@media (max-width: 600px) {
+  /* Header: phone + theme toggle on one row, call button full-width below */
+  .site-header-cta {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .site-header-phone { align-items: flex-start !important; order: 1; }
+  .site-header-toggle { order: 2; }
+  .site-header-call {
+    order: 3;
+    flex-basis: 100%;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+  }
+
+  /* Hero badge: push down so it doesn't cover the photo */
+  .hero-badge {
+    left: 0 !important;
+    bottom: -18px !important;
+  }
+}

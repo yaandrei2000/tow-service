@@ -5,13 +5,13 @@ import { useState } from "react";
 type TypeKey = "legkovoe" | "krossover" | "moto" | "dtp";
 
 const TYPES: Record<TypeKey, { label: string; base: number; km: number }> = {
-  legkovoe: { label: "Легковое", base: 1500, km: 45 },
-  krossover: { label: "Кроссовер / джип", base: 2000, km: 55 },
-  moto: { label: "Мотоцикл", base: 1500, km: 45 },
-  dtp: { label: "После ДТП", base: 2500, km: 60 },
+  legkovoe: { label: "Легковое", base: 1500, km: 100 },
+  krossover: { label: "Кроссовер / джип", base: 2000, km: 100 },
+  moto: { label: "Мотоцикл", base: 1500, km: 100 },
+  dtp: { label: "После ДТП", base: 2500, km: 100 },
 };
 
-const fmt = (n: number) => n.toLocaleString("ru-RU") + " ₽";
+const fmt = (n: number) => n.toLocaleString("ru-RU") + " ₽";
 
 export default function Calculator() {
   const [calcType, setCalcType] = useState<TypeKey>("legkovoe");
@@ -106,8 +106,8 @@ export default function Calculator() {
         }}
       >
         <div style={{ fontSize: 13, color: "var(--text-3)", textTransform: "uppercase", letterSpacing: 1.5 }}>Ориентировочно</div>
-        <div style={{ fontFamily: "var(--font-oswald)", fontWeight: 700, fontSize: 56, lineHeight: 1, color: "var(--accent)", margin: "10px 0" }}>
-          ≈ {fmt(total)}
+        <div style={{ fontFamily: "var(--font-oswald)", fontWeight: 700, fontSize: "clamp(40px, 11vw, 56px)", lineHeight: 1, color: "var(--accent)", margin: "10px 0", whiteSpace: "nowrap" }}>
+          ≈&nbsp;{fmt(total)}
         </div>
         <div style={{ fontSize: 13, color: "var(--text-3)", lineHeight: 1.5, borderTop: "1px solid var(--border)", paddingTop: 16, marginTop: 6 }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>

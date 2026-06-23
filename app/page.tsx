@@ -1,25 +1,26 @@
 import ThemeToggle from "./components/ThemeToggle";
 import Calculator from "./components/Calculator";
-import { PHONE_DISPLAY, PHONE_HREF, COMPANY } from "./site-config";
+import { PHONE_DISPLAY, PHONE_HREF, COMPANY, SLOGAN } from "./site-config";
 
 const trust = [
-  { icon: "⏱", text: "Подача от 15 минут по городу" },
-  { icon: "₽", text: "Фиксированная цена без доплат" },
-  { icon: "24", text: "Круглосуточно, 7 дней в неделю" },
-  { icon: "★", text: "Опытные водители, аккуратная погрузка" },
+  { icon: "⏱", text: "Быстрая подача эвакуатора от 20 минут" },
+  { icon: "24", text: "Работаем круглосуточно, без выходных" },
+  { icon: "🛡", text: "Бережная погрузка и безопасная доставка" },
+  { icon: "₽", text: "Честные цены — без скрытых платежей" },
 ];
 
 const services = [
-  { icon: "🚗", title: "Легковые авто", text: "Седаны и хэтчбеки — стандартная погрузка краном-манипулятором или лебёдкой.", price: "от 1 500 ₽ по городу" },
-  { icon: "🚙", title: "Внедорожники и кроссоверы", text: "Полноразмерные SUV и джипы. Учитываем клиренс и полный привод.", price: "от 2 000 ₽ по городу" },
-  { icon: "🏍", title: "Мотоциклы", text: "Бережная перевозка мото и скутеров с надёжной фиксацией ремнями.", price: "от 1 500 ₽ по городу" },
-  { icon: "🛟", title: "Помощь при ДТП", text: "Эвакуация повреждённых авто, в том числе с заклинившими колёсами.", price: "от 2 500 ₽" },
-  { icon: "🛣", title: "Межгород и область", text: "Перевозка между городами по фиксированному тарифу за километр.", price: "от 45 ₽/км" },
+  { icon: "🚗", title: "Легковые авто", text: "Седаны, хэтчбеки и кроссоверы — аккуратная погрузка и фиксация.", price: "от 1 500 ₽ по городу" },
+  { icon: "🚐", title: "Внедорожники и микроавтобусы", text: "Полноразмерные SUV, джипы и буса. Учитываем габариты и клиренс.", price: "от 2 000 ₽ по городу" },
+  { icon: "🏍", title: "Мотоциклы и квадроциклы", text: "Бережная перевозка мото, скутеров и квадриков с мягкой фиксацией.", price: "от 1 500 ₽" },
+  { icon: "🛠", title: "Техпомощь на дороге", text: "Запуск двигателя, замена колеса, подвоз топлива, отключённый АКБ.", price: "от 800 ₽" },
+  { icon: "🛣", title: "Доставка авто по России", text: "Перевозка между городами по фиксированному тарифу за километр.", price: "от 45 ₽/км" },
+  { icon: "🛟", title: "Выкуп авто после ДТП", text: "Срочно выкупим битый или неисправный автомобиль. Оценка бесплатно.", price: "оценка бесплатно" },
 ];
 
 const steps = [
   { n: "1", title: "Звоните", text: "Описываете машину и адрес — диспетчер сразу называет цену." },
-  { n: "2", title: "Выезжаем", text: "Ближайший эвакуатор едет к вам, в среднем 18 минут по городу." },
+  { n: "2", title: "Выезжаем", text: "Ближайший эвакуатор едет к вам, в среднем 20 минут по городу." },
   { n: "3", title: "Грузим", text: "Аккуратно фиксируем авто. Платите по факту, без сюрпризов." },
   { n: "4", title: "Доставляем", text: "Везём в сервис, гараж или по нужному адресу." },
 ];
@@ -49,21 +50,19 @@ export default function Home() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div style={{ maxWidth: 1180, margin: "0 auto", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+        <div className="site-header-inner" style={{ maxWidth: 1180, margin: "0 auto", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
           <a href="#top" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none", color: "inherit" }}>
-            <span style={{ ...oswald, display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, background: "var(--accent)", borderRadius: 10, fontWeight: 700, fontSize: 24, color: "var(--on-accent)" }}>К</span>
-            <span style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-              <span style={{ ...oswald, fontWeight: 600, fontSize: 20, letterSpacing: 0.5, textTransform: "uppercase" }}>{COMPANY}</span>
-              <span style={{ fontSize: 12, color: "var(--text-3)", marginTop: 3, letterSpacing: 2, textTransform: "uppercase" }}>Владимир и область</span>
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt={`${COMPANY} 24/7 — эвакуатор Владимир`} style={{ height: 58, width: "auto", display: "block" }} />
+            <span style={{ fontSize: 12, color: "var(--text-3)", letterSpacing: 2, textTransform: "uppercase", lineHeight: 1.35, maxWidth: 130 }}>Владимир и область</span>
           </a>
-          <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", lineHeight: 1.2 }}>
+          <div className="site-header-cta" style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+            <div className="site-header-phone" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", lineHeight: 1.2 }}>
               <span style={{ fontSize: 11, color: "var(--text-3)", textTransform: "uppercase", letterSpacing: 1.5 }}>Круглосуточно · 24/7</span>
               <a href={PHONE_HREF} style={{ ...oswald, fontWeight: 600, fontSize: 22, color: "var(--text)", textDecoration: "none" }}>{PHONE_DISPLAY}</a>
             </div>
-            <a href="#zvonok" className="btn-accent" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--accent)", color: "var(--on-accent)", fontWeight: 800, fontSize: 15, padding: "12px 22px", borderRadius: 10, textDecoration: "none", whiteSpace: "nowrap" }}>Вызвать эвакуатор</a>
-            <ThemeToggle />
+            <a href="#zvonok" className="btn-accent site-header-call" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, background: "var(--accent)", color: "var(--on-accent)", fontWeight: 800, fontSize: 15, padding: "12px 22px", borderRadius: 10, textDecoration: "none", whiteSpace: "nowrap" }}>Вызвать эвакуатор</a>
+            <span className="site-header-toggle"><ThemeToggle /></span>
           </div>
         </div>
       </header>
@@ -73,13 +72,13 @@ export default function Home() {
         <div style={{ flex: "1 1 440px", minWidth: "min(320px, 100%)" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--accent-soft)", border: "1px solid var(--accent-border)", color: "var(--accent-2)", padding: "7px 14px", borderRadius: 100, fontSize: 13, fontWeight: 700, letterSpacing: 0.5 }}>
             <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 0 4px rgba(255,106,26,.25)" }} />
-            Подача от 15 минут по городу
+            Быстрая подача эвакуатора от 20 минут
           </div>
           <h1 style={{ ...oswald, fontWeight: 700, fontSize: "clamp(36px, 8vw, 60px)", lineHeight: 1.02, textTransform: "uppercase", margin: "22px 0 0", letterSpacing: -0.5 }}>
             Эвакуатор во&nbsp;Владимире <span style={{ color: "var(--accent)" }}>круглосуточно</span>
           </h1>
           <p style={{ fontSize: 18, lineHeight: 1.55, color: "var(--text-2)", maxWidth: 520, margin: "22px 0 0" }}>
-            Приедем быстро, погрузим аккуратно. Легковые, кроссоверы, мотоциклы, помощь при ДТП и перевозка по области. Фиксированная цена — называем её до выезда.
+            Приедем быстро, погрузим аккуратно. Легковые, внедорожники, мотоциклы, техпомощь на дороге и доставка по России. Честная цена — называем её до выезда.
           </p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 34, alignItems: "center" }}>
             <a href={PHONE_HREF} style={{ display: "inline-flex", flexDirection: "column", gap: 2, background: "var(--accent)", color: "var(--on-accent)", padding: "16px 30px", borderRadius: 14, textDecoration: "none", animation: "ev-pulse 2.4s infinite" }}>
@@ -98,14 +97,15 @@ export default function Home() {
           </div>
         </div>
         <div style={{ flex: "1 1 380px", minWidth: "min(300px, 100%)", position: "relative" }}>
-          <div style={{ position: "relative", borderRadius: 18, overflow: "hidden", backgroundColor: "var(--surface-3)", backgroundImage: "repeating-linear-gradient(135deg, var(--stripe) 0 14px, transparent 14px 28px)", border: "1px solid var(--border)", aspectRatio: "4 / 3", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 13, color: "var(--text-4)", letterSpacing: 1 }}>[ фото эвакуатора с машиной ]</span>
+          <div style={{ position: "relative", borderRadius: 18, overflow: "hidden", border: "1px solid var(--border)", aspectRatio: "4 / 3" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/truck-hero.png" alt={`Эвакуатор ${COMPANY} во Владимире — эвакуация авто ночью`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
-          <div style={{ position: "absolute", left: -10, bottom: 22, background: "var(--surface)", border: "1px solid var(--border-mid)", borderRadius: 14, padding: "14px 18px", display: "flex", alignItems: "center", gap: 12, boxShadow: "var(--shadow)" }}>
+          <div className="hero-badge" style={{ position: "absolute", left: -10, bottom: 22, background: "var(--surface)", border: "1px solid var(--border-mid)", borderRadius: 14, padding: "14px 18px", display: "flex", alignItems: "center", gap: 12, boxShadow: "var(--shadow)" }}>
             <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 42, height: 42, borderRadius: "50%", background: "var(--ok-soft)", color: "var(--ok)", fontSize: 20 }}>✓</span>
             <div style={{ lineHeight: 1.25 }}>
               <div style={{ fontWeight: 800, fontSize: 15 }}>Едем уже к вам</div>
-              <div style={{ fontSize: 12, color: "var(--text-3)" }}>Среднее время подачи — 18 мин</div>
+              <div style={{ fontSize: 12, color: "var(--text-3)" }}>Среднее время подачи — 20 мин</div>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
           {services.map((s) => (
             <div key={s.title} className="service-card" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 16, padding: 26, display: "flex", flexDirection: "column", gap: 12 }}>
-              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 52, height: 52, borderRadius: 12, background: "var(--accent-soft)", fontSize: 26 }}>{s.icon}</span>
+              {/* <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 52, height: 52, borderRadius: 12, background: "var(--accent-soft)", fontSize: 26 }}>{s.icon}</span> */}
               <h3 style={{ ...oswald, fontWeight: 600, fontSize: 21, margin: "6px 0 0", textTransform: "uppercase", letterSpacing: 0.3 }}>{s.title}</h3>
               <p style={{ fontSize: 14, color: "var(--text-3)", lineHeight: 1.5, margin: 0 }}>{s.text}</p>
               <span style={{ marginTop: "auto", fontSize: 13, color: "var(--accent-2)", fontWeight: 700 }}>{s.price}</span>
@@ -194,11 +194,13 @@ export default function Home() {
               ))}
             </div>
           </div>
+          {/* Блок карты временно скрыт — доделаю позже
           <div style={{ flex: "1 1 320px", minWidth: "min(300px, 100%)" }}>
             <div style={{ borderRadius: 18, overflow: "hidden", backgroundColor: "var(--surface-3)", backgroundImage: "repeating-linear-gradient(45deg, var(--stripe) 0 16px, transparent 16px 32px)", border: "1px solid var(--border)", aspectRatio: "16 / 10", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span style={{ fontFamily: "ui-monospace, monospace", fontSize: 13, color: "var(--text-4)", letterSpacing: 1 }}>[ карта зоны выезда ]</span>
             </div>
           </div>
+          */}
         </div>
       </section>
 
@@ -218,7 +220,7 @@ export default function Home() {
             </a>
             <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, fontWeight: 600, color: "#14161b" }}>
               <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 30, height: 30, borderRadius: "50%", background: "rgba(20,22,27,.12)" }}>⏱</span>
-              Среднее время подачи по городу — 18 минут
+              Среднее время подачи по городу — 20 минут
             </div>
           </div>
         </div>
@@ -229,11 +231,15 @@ export default function Home() {
         <div style={{ maxWidth: 1180, margin: "0 auto", padding: "44px 24px", display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "space-between" }}>
           <div style={{ flex: "1 1 280px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <span style={{ ...oswald, display: "inline-flex", alignItems: "center", justifyContent: "center", width: 38, height: 38, background: "var(--accent)", borderRadius: 9, fontWeight: 700, fontSize: 22, color: "var(--on-accent)" }}>К</span>
-              <span style={{ ...oswald, fontWeight: 600, fontSize: 19, textTransform: "uppercase" }}>{COMPANY}</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt={`${COMPANY} — эвакуатор Владимир`} style={{ height: 58, width: "auto", display: "block" }} />
+              <span style={{ fontSize: 12, color: "var(--text-3)", letterSpacing: 2, textTransform: "uppercase", lineHeight: 1.35, maxWidth: 130 }}>Владимир и область</span>
             </div>
             <p style={{ fontSize: 14, color: "var(--text-3)", lineHeight: 1.6, margin: "16px 0 0", maxWidth: 320 }}>
               Эвакуация авто и мотоциклов во Владимире и области. Круглосуточно, без выходных и праздников.
+            </p>
+            <p style={{ ...oswald, fontWeight: 600, fontSize: 15, color: "var(--accent-2)", letterSpacing: 0.5, textTransform: "uppercase", margin: "14px 0 0" }}>
+              {SLOGAN}
             </p>
           </div>
           <div style={{ flex: "0 1 200px" }}>
