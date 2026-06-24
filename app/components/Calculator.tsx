@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 
-type TypeKey = "legkovoe" | "krossover" | "moto" | "dtp";
+type TypeKey = "legkovoe" | "krossover";
 
 const TYPES: Record<TypeKey, { label: string; base: number; km: number }> = {
-  legkovoe: { label: "Легковое", base: 1500, km: 100 },
-  krossover: { label: "Кроссовер / джип", base: 2000, km: 100 },
-  moto: { label: "Мотоцикл", base: 1500, km: 100 },
-  dtp: { label: "После ДТП", base: 2500, km: 100 },
+  legkovoe: { label: "Легковое", base: 3000, km: 100 },
+  krossover: { label: "Внедорожник / микроавтобус", base: 3500, km: 100 }
 };
 
 const fmt = (n: number) => n.toLocaleString("ru-RU") + " ₽";

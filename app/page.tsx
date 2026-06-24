@@ -10,11 +10,11 @@ const trust = [
 ];
 
 const services = [
-  { icon: "🚗", title: "Легковые авто", text: "Седаны, хэтчбеки и кроссоверы — аккуратная погрузка и фиксация.", price: "от 1 500 ₽ по городу" },
-  { icon: "🚐", title: "Внедорожники и микроавтобусы", text: "Полноразмерные SUV, джипы и буса. Учитываем габариты и клиренс.", price: "от 2 000 ₽ по городу" },
-  { icon: "🏍", title: "Мотоциклы и квадроциклы", text: "Бережная перевозка мото, скутеров и квадриков с мягкой фиксацией.", price: "от 1 500 ₽" },
+  { icon: "🚗", title: "Легковые авто", text: "Седаны, хэтчбеки и кроссоверы — аккуратная погрузка и фиксация.", price: "от 3000 ₽ по городу" },
+  { icon: "🚐", title: "Внедорожники и микроавтобусы", text: "Полноразмерные SUV, джипы и буса. Учитываем габариты и клиренс.", price: "от 3500 ₽ по городу" },
+  { icon: "🏍", title: "Мотоциклы и квадроциклы", text: "Бережная перевозка мото, скутеров и квадриков с мягкой фиксацией.", price: "от 3000 ₽" },
   { icon: "🛠", title: "Техпомощь на дороге", text: "Запуск двигателя, замена колеса, подвоз топлива, отключённый АКБ.", price: "от 800 ₽" },
-  { icon: "🛣", title: "Доставка авто по России", text: "Перевозка между городами по фиксированному тарифу за километр.", price: "от 45 ₽/км" },
+  { icon: "🛣", title: "Доставка авто по России", text: "Перевозка между городами по фиксированному тарифу за километр.", price: "от 100 ₽/км" },
   { icon: "🛟", title: "Выкуп авто после ДТП", text: "Срочно выкупим битый или неисправный автомобиль. Оценка бесплатно.", price: "оценка бесплатно" },
 ];
 
@@ -130,7 +130,7 @@ export default function Home() {
             <div style={{ fontSize: 13, color: "var(--accent)", fontWeight: 800, letterSpacing: 2, textTransform: "uppercase" }}>Что мы возим</div>
             <h2 style={{ ...oswald, fontWeight: 700, fontSize: "clamp(30px, 6vw, 40px)", textTransform: "uppercase", margin: "10px 0 0" }}>Услуги эвакуатора</h2>
           </div>
-          <p style={{ maxWidth: 380, fontSize: 15, color: "var(--text-3)", margin: 0, lineHeight: 1.5 }}>Работаем с любым транспортом массой до 3,5 тонн. Подберём способ погрузки под вашу ситуацию.</p>
+          <p style={{ maxWidth: 380, fontSize: 15, color: "var(--text-3)", margin: 0, lineHeight: 1.5 }}>Работаем с любым транспортом массой до 5 тонн. Подберём способ погрузки под вашу ситуацию.</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
           {services.map((s) => (
@@ -138,7 +138,7 @@ export default function Home() {
               {/* <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 52, height: 52, borderRadius: 12, background: "var(--accent-soft)", fontSize: 26 }}>{s.icon}</span> */}
               <h3 style={{ ...oswald, fontWeight: 600, fontSize: 21, margin: "6px 0 0", textTransform: "uppercase", letterSpacing: 0.3 }}>{s.title}</h3>
               <p style={{ fontSize: 14, color: "var(--text-3)", lineHeight: 1.5, margin: 0 }}>{s.text}</p>
-              <span style={{ marginTop: "auto", fontSize: 13, color: "var(--accent-2)", fontWeight: 700 }}>{s.price}</span>
+              {/* <span style={{ marginTop: "auto", fontSize: 13, color: "var(--accent-2)", fontWeight: 700 }}>{s.price}</span> */}
             </div>
           ))}
         </div>
