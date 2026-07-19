@@ -15,7 +15,12 @@ export default function ThemeToggle() {
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
+    const root = document.documentElement;
+    root.setAttribute("data-theme-switching", "");
+    root.setAttribute("data-theme", next);
+    // Flush the new colors while transitions are still off, then restore them.
+    void root.offsetHeight;
+    requestAnimationFrame(() => root.removeAttribute("data-theme-switching"));
     try {
       localStorage.setItem("theme", next);
     } catch {

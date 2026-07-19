@@ -38,7 +38,7 @@ Netlify, Vercel, обычный сервер) — серверная часть 
 - Семантические заголовки, `lang="ru"`, шрифты через `next/font` (без layout shift).
 - `themeColor` для светлой и тёмной темы.
 
-> Перед публикацией замените домен `https://krutoy-evakuator-vladimir.ru` и телефон в `app/site-config.ts`,
+> Перед публикацией замените домен `https://krutoy-evakuator.ru` и телефон в `app/site-config.ts`,
 > а также добавьте картинку `public/og.jpg` (1200×630) для соцсетей.
 
 ## Структура
