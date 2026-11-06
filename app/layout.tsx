@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Oswald, Manrope } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { SITE_URL, PHONE_DISPLAY, PHONE_HREF, COMPANY, CITY } from "./site-config";
 
@@ -74,6 +75,32 @@ export const viewport: Viewport = {
 // Runs before paint: use saved theme, otherwise the device preference. No flash.
 const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
 
+const metrikaId = 114112737;
+const metrikaScript = `
+  (function (url) {
+    window.ym = window.ym || function () {
+      (window.ym.a = window.ym.a || []).push(arguments);
+    };
+    window.ym.l = Date.now();
+    if (Array.from(document.scripts).some(function (script) { return script.src === url; })) return;
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.src = url;
+    document.head.appendChild(tag);
+  })('https://mc.yandex.ru/metrika/tag.js?id=${metrikaId}');
+
+  ym(${metrikaId}, 'init', {
+    ssr: true,
+    webvisor: true,
+    clickmap: true,
+    ecommerce: 'dataLayer',
+    referrer: document.referrer,
+    url: location.href,
+    accurateTrackBounce: true,
+    trackLinks: true
+  });
+`;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "TowingService",
@@ -119,7 +146,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script id="yandex-metrika" strategy="afterInteractive">
+              {metrikaScript}
+            </Script>
+            {/* Raw markup keeps React from preloading the fallback image. */}
+            <noscript
+              dangerouslySetInnerHTML={{
+                __html: `<img src="https://mc.yandex.ru/watch/${metrikaId}" style="position:absolute;left:-9999px" alt="">`,
+              }}
+            />
+          </>
+        )}
+        {children}
+      </body>
     </html>
   );
 }
